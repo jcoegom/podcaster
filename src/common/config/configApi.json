@@ -1,3 +1,4 @@
 {
-  "urlMain": "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json"
+  "urlMain": "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json",
+  "validTime": 86400000
 }

@@ -1,4 +1,5 @@
-import { Router, Link, Route } from "@reach/router";
+import { Router } from "@reach/router";
+import StoreProvider from "./common/providers/StoreProvider";
 import "./App.css";
 
 import Home from "./pages/Home";
@@ -7,11 +8,13 @@ import EpisodeDetails from "./pages/EpisodeDetails";
 
 function App() {
   return (
-    <Router>
-      <Home path="/" />
-      <PodcastDetails path="/podcast/:podcastId" />
-      <EpisodeDetails path="/podcast/:podcastId/episode/:episodeId" />
-    </Router>
+    <StoreProvider>
+      <Router>
+        <Home path="/" />
+        <PodcastDetails path="/podcast/:podcastId" />
+        <EpisodeDetails path="/podcast/:podcastId/episode/:episodeId" />
+      </Router>
+    </StoreProvider>
   );
 }
 
