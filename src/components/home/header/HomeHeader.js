@@ -1,6 +1,6 @@
 import "./HomeHeader.css";
 
-const Homeheader = ({ text = "-", value, onChange }) => {
+const Homeheader = ({ text = "-", value = "", onChange = () => {} }) => {
   return (
     <div className="homeheader-main">
       <span className="homeheader-text">{text}</span>
