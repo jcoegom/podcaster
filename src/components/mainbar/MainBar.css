@@ -1,4 +1,21 @@
 .mainbar-main {
   display: grid;
   grid-template-columns: auto auto;
+  padding: 15px;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.mainbar-title {
+  text-align: left;
+  color: #7aa7db;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.mainbar-actions {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

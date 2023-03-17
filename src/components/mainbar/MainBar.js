@@ -1,9 +1,9 @@
 import "./MainBar.css";
-const MainBar = ({ text, actions }) => {
+const MainBar = ({ title, actions }) => {
   return (
     <div className="mainbar-main">
-      <div>{text}</div>
-      <div>{actions}</div>
+      <div className="mainbar-title">{title}</div>
+      <div className="mainbar-actions">{actions}</div>
     </div>
   );
 };

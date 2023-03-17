@@ -1,4 +1,4 @@
-import "./spinner.css";
+import "./Spinner.css";
 const Spinner = () => {
   return <div class="spinner"></div>;
 };
