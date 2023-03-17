@@ -1,0 +1,19 @@
+.homeheader-main {
+  text-align: right;
+  padding-top: 15px;
+}
+
+.homeheader-text {
+  margin-right: 10px;
+  color: white;
+  background-color: #7aa7db;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.homeheader-input {
+  height: 35px;
+  border: 1px solid #c0b9b9;
+  border-radius: 5px;
+  width: 270px;
+}

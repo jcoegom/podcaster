@@ -1,6 +1,6 @@
 import "./Spinner.css";
-const Spinner = () => {
-  return <div class="spinner"></div>;
+const Spinner = ({ show = false }) => {
+  return <>{show ? <div class="spinner"></div> : null}</>;
 };
 
 export default Spinner;
