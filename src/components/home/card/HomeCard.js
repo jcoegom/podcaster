@@ -1,16 +1,18 @@
 import "./HomeCard.css";
 
-const HomeCard = () => {
+const HomeCard = ({
+  title = "NO TITLE",
+  author = "No Author",
+  imgSrc = "https://placehold.it/200x200",
+}) => {
   return (
     <div class="card">
       <div className="homecard-img">
-        <img src="https://placehold.it/200x200" alt="Card Image" />
+        <img src={imgSrc} alt="Card Image" />
       </div>
       <div class="card-content">
-        <h2 class="card-title">Card Title</h2>
-        <p class="card-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
+        <h2 class="card-title">{title}</h2>
+        <p class="card-description">Author: {author}</p>
       </div>
     </div>
   );
