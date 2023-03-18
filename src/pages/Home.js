@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react";
+import HomeCard from "../components/home/card/HomeCard";
 import MainBar from "../components/mainbar/MainBar";
 import Spinner from "../components/spinner/Spinner";
 import HomeHeader from "../components/home/header/HomeHeader";
@@ -28,6 +29,9 @@ const Home = () => {
     <div className="home-main layout">
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />
       <HomeHeader />
+      <br />
+
+      <HomeCard />
     </div>
   );
 };
