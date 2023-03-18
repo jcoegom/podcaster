@@ -3,6 +3,7 @@ import HomeCard from "../components/home/card/HomeCard";
 import MainBar from "../components/mainbar/MainBar";
 import Spinner from "../components/spinner/Spinner";
 import HomeHeader from "../components/home/header/HomeHeader";
+import CardsContainer from "../components/home/cardsContainer/CardsContainer";
 import useQueryData from "../common/hooks/UseQueryData";
 import configApi from "../common/config/configApi.json";
 import { StoreContext } from "../common/providers/StoreProvider";
@@ -25,12 +26,13 @@ const Home = () => {
     });
   }, [result]);
 
+  console.log(store.podcasts);
   return (
     <div className="home-main layout">
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />
       <HomeHeader />
       <br />
-
+      <CardsContainer cards={store.podcasts} />
       <HomeCard />
     </div>
   );
