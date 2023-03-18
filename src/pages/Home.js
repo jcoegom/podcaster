@@ -32,8 +32,11 @@ const Home = () => {
   }, [result]);
 
   useEffect(() => {
-    if (!store?.podcasts || store.podcasts.length === 0 || !textToSearch)
-      return;
+    if (!store?.podcasts || store.podcasts.length === 0) return;
+    if (!textToSearch) {
+      setPodcastsToDisplay(store.podcasts);
+    }
+
     let filteredPodcasts = store.podcasts?.filter((podcast) => {
       let { title, author } = getDataFromPodcast(podcast);
       return (title + " " + author)
