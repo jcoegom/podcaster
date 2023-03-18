@@ -1,20 +1,21 @@
 import React from "react";
 import HomeCard from "../card/HomeCard";
+import { getDataFromPodcast } from "../../../common/utils/podcasts";
 
 import "./CardsContainer.css";
-const CardsContainer = React.memo(({ cards = [] }) => {
-  console.log("****cards", cards);
+const CardsContainer = React.memo(({ show = true, cards = [] }) => {
   return (
-    <div className="cardscontainer-main">
-      {cards &&
-        cards.map((card) => (
-          <HomeCard
-            title={card["im:name"]?.label}
-            author={card["im:artist"]?.label}
-            imgSrc={card["im:image"]?.[0]?.label}
-          />
-        ))}
-    </div>
+    <>
+      {show ? (
+        <div className="cardscontainer-main">
+          {cards &&
+            cards.map((card) => {
+              let { title, author, imgSrc } = getDataFromPodcast(card);
+              return <HomeCard title={title} author={author} imgSrc={imgSrc} />;
+            })}
+        </div>
+      ) : null}
+    </>
   );
 });
 
