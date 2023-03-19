@@ -3,10 +3,12 @@ import React, { useReducer, createContext } from "react";
 export const StoreContext = createContext();
 
 const SET_PODCASTS = "setPodcasts";
+const SET_PODCAST_DETAILS = "setPodcastDetails";
 
 const defaultStore = {
   podcasts: [],
   podcastsValidTo: 0,
+  podcastsDetails: {},
 };
 
 //reducer
@@ -15,6 +17,19 @@ const reducerStore = (state, { type = "", payload = "" }) => {
     case SET_PODCASTS:
       const { podcasts, podcastsValidTo } = payload;
       return { ...state, podcasts, podcastsValidTo };
+
+    case SET_PODCAST_DETAILS:
+      const { podcast, podcastValidTo, podcastId } = payload;
+      return {
+        ...state,
+        podcastsDetails: {
+          ...state.podcastsDetails,
+          [podcastId]: { ...podcast, podcastValidTo },
+        },
+      };
+
+    default:
+      return state;
   }
 };
 
@@ -28,6 +43,12 @@ const StoreProvider = (props) => {
       payload: { podcasts, podcastsValidTo },
     });
   };
+  const setPodcastDetails = ({ podcast, podcastValidTo, podcastId }) => {
+    dispatchStore({
+      type: SET_PODCAST_DETAILS,
+      payload: { podcast, podcastValidTo, podcastId },
+    });
+  };
 
   return (
     <StoreContext.Provider
@@ -35,6 +56,7 @@ const StoreProvider = (props) => {
         store,
         {
           setPodcasts,
+          setPodcastDetails,
         },
       ]}
     >

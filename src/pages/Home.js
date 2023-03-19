@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import HomeCard from "../components/home/card/HomeCard";
 import MainBar from "../components/mainbar/MainBar";
 import Spinner from "../components/spinner/Spinner";
 import HomeHeader from "../components/home/header/HomeHeader";
@@ -7,6 +6,7 @@ import CardsContainer from "../components/home/cardsContainer/CardsContainer";
 import Error from "../components/error/Error";
 import useQueryData from "../common/hooks/UseQueryData";
 import configApi from "../common/config/configApi.json";
+import HomeCard from "../components/home/card/HomeCard";
 import { StoreContext } from "../common/providers/StoreProvider";
 import { haveBeenExpired } from "../common/utils/common";
 import { getDataFromPodcast } from "../common/utils/podcasts";
@@ -57,7 +57,13 @@ const Home = () => {
       />
       <br />
       <br />
-      <CardsContainer show={!error} cards={podcastsToDisplay} />
+      <CardsContainer show={!error} cards={podcastsToDisplay}>
+        {podcastsToDisplay &&
+          podcastsToDisplay.map((card) => {
+            let { title, author, imgSrc } = getDataFromPodcast(card);
+            return <HomeCard title={title} author={author} imgSrc={imgSrc} />;
+          })}
+      </CardsContainer>
       <Error
         show={!!error}
         message={"An error has ocurred!! Please reload page."}
