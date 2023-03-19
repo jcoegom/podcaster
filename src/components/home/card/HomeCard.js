@@ -4,9 +4,10 @@ const HomeCard = ({
   title = "NO TITLE",
   author = "No Author",
   imgSrc = "https://placehold.it/200x200",
+  onClick = () => {},
 }) => {
   return (
-    <div class="card">
+    <div onClick={(e) => onClick()} class="card">
       <div className="homecard-img">
         <img src={imgSrc} alt="Card Image" />
       </div>

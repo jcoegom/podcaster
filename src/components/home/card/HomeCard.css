@@ -7,6 +7,9 @@
   height: 350px;
   position: relative;
 }
+.card:hover {
+  cursor: pointer;
+}
 .homecard-img {
   position: absolute;
   transform: translateY(0%);

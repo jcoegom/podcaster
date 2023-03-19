@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { navigate } from "@reach/router";
 import MainBar from "../components/mainbar/MainBar";
 import Spinner from "../components/spinner/Spinner";
 import HomeHeader from "../components/home/header/HomeHeader";
@@ -60,8 +61,15 @@ const Home = () => {
       <CardsContainer show={!error} cards={podcastsToDisplay}>
         {podcastsToDisplay &&
           podcastsToDisplay.map((card) => {
-            let { title, author, imgSrc } = getDataFromPodcast(card);
-            return <HomeCard title={title} author={author} imgSrc={imgSrc} />;
+            let { title, author, imgSrc, id } = getDataFromPodcast(card);
+            return (
+              <HomeCard
+                onClick={(e) => navigate(`/podcast/${id}`)}
+                title={title}
+                author={author}
+                imgSrc={imgSrc}
+              />
+            );
           })}
       </CardsContainer>
       <Error
