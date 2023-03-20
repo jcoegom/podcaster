@@ -50,7 +50,7 @@ const PodcastDetails = ({ podcastId }) => {
           />
           <br />
           <TableEpisodes
-            episodes={store.podcastsDetails[podcastId]?.podcast?.length ?? []}
+            episodes={store.podcastsDetails[podcastId]?.podcast ?? []}
           />
         </div>
       </LayoutPodcastDetails>
