@@ -12,6 +12,7 @@ import HeaderPodcastDetails from "../components/home/podcastdetails/headerpodcas
 import "../App.css";
 import LayoutPodcastDetails from "../components/home/podcastdetails/layoutpodcastdetails/LayoutPodcastDetails";
 import TableEpisodes from "../components/home/podcastdetails/tableepisodes/TableEpisodes";
+import { navigate } from "@reach/router";
 
 const PodcastDetails = ({ podcastId }) => {
   const [store, actionCreators] = useContext(StoreContext);
@@ -34,7 +35,11 @@ const PodcastDetails = ({ podcastId }) => {
     });
   }, [result]);
 
-  console.log("store", store);
+  const handleClickEpisode = ({ podcastId, episodeId }) => {
+    navigate(`/podcast/${podcastId}/episode/${episodeId}`);
+  };
+
+  console.log("result", JSON.parse(result?.contents ?? "{}"));
 
   return (
     <div className="layout">
@@ -51,6 +56,9 @@ const PodcastDetails = ({ podcastId }) => {
           <br />
           <TableEpisodes
             episodes={store.podcastsDetails[podcastId]?.podcast ?? []}
+            onClick={({ podcastId, episodeId }) =>
+              handleClickEpisode({ podcastId, episodeId })
+            }
           />
         </div>
       </LayoutPodcastDetails>

@@ -3,7 +3,11 @@ import {
   convertMsIntoMinSec,
   formatDate,
 } from "../../../../common/utils/common";
-const TableEpisodes = ({ episodes = [] }) => {
+const TableEpisodes = ({ episodes = [], onClick = (e) => {} }) => {
+  const handleClick = (e, { podcastId, episodeId }) => {
+    e.preventDefault();
+    onClick({ podcastId, episodeId });
+  };
   return (
     <div className="tableepisodes-main">
       <table>
@@ -15,7 +19,19 @@ const TableEpisodes = ({ episodes = [] }) => {
         {episodes &&
           episodes.map((episode) => (
             <tr>
-              <td>{episode.name}</td>
+              <td>
+                <a
+                  href=""
+                  onClick={(e) =>
+                    handleClick(e, {
+                      podcastId: episode.podcastId,
+                      episodeId: episode.episodeId,
+                    })
+                  }
+                >
+                  {episode.name}
+                </a>
+              </td>
               <td>{formatDate(episode.date)}</td>
               <td style={{ textAlign: "center" }}>
                 {convertMsIntoMinSec(episode.duration)}

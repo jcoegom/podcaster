@@ -14,6 +14,10 @@ export const getEpisodes = (podcastDetails) => {
       name: detail.trackName,
       date: detail.releaseDate,
       duration: detail.trackTimeMillis,
+      description: detail.description,
+      url: detail.episodeUrl,
+      podcastId: detail.collectionId,
+      episodeId: detail.trackId,
     };
   });
   return result;
