@@ -7,13 +7,13 @@ const HomeCard = ({
   onClick = () => {},
 }) => {
   return (
-    <div onClick={(e) => onClick()} class="card">
+    <div onClick={(e) => onClick()} className="card">
       <div className="homecard-img">
         <img src={imgSrc} alt="Card Image" />
       </div>
-      <div class="card-content">
-        <h2 class="card-title">{title}</h2>
-        <p class="card-description">Author: {author}</p>
+      <div className="card-content">
+        <h2 className="card-title">{title}</h2>
+        <p className="card-description">Author: {author}</p>
       </div>
     </div>
   );

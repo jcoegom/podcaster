@@ -1,0 +1,26 @@
+.tableepisodes-main {
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 7px;
+  padding-bottom: 0px;
+}
+
+.tableepisodes-main table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tableepisodes-main th,
+.tableepisodes-main td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-right: none;
+  border-left: none;
+}
+.tableepisodes-main th {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+.tableepisodes-main tr:nth-child(odd) {
+  background-color: rgb(245, 241, 241);
+}

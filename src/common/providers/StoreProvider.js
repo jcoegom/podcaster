@@ -24,7 +24,7 @@ const reducerStore = (state, { type = "", payload = "" }) => {
         ...state,
         podcastsDetails: {
           ...state.podcastsDetails,
-          [podcastId]: { ...podcast, podcastValidTo },
+          [podcastId]: { podcast, podcastValidTo },
         },
       };
 
