@@ -1,8 +1,18 @@
+import { navigate } from "@reach/router";
+
 import "./MainBar.css";
-const MainBar = ({ title, actions }) => {
+const MainBar = ({
+  title,
+  actions,
+  onClick = () => {
+    navigate("/");
+  },
+}) => {
   return (
     <div className="mainbar-main">
-      <div className="mainbar-title">{title}</div>
+      <div onClick={(e) => onClick()} className="mainbar-title">
+        {title}
+      </div>
       <div className="mainbar-actions">{actions}</div>
     </div>
   );

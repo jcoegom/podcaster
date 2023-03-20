@@ -13,6 +13,10 @@
   font-weight: bold;
 }
 
+.mainbar-title:hover {
+  cursor: pointer;
+}
+
 .mainbar-actions {
   text-align: right;
   display: flex;
