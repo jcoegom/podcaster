@@ -11,33 +11,37 @@ const TableEpisodes = ({ episodes = [], onClick = (e) => {} }) => {
   return (
     <div className="tableepisodes-main">
       <table>
-        <tr>
-          <th>Title</th>
-          <th>Date</th>
-          <th>Duration</th>
-        </tr>
-        {episodes &&
-          episodes.map((episode) => (
-            <tr>
-              <td>
-                <a
-                  href=""
-                  onClick={(e) =>
-                    handleClick(e, {
-                      podcastId: episode.podcastId,
-                      episodeId: episode.episodeId,
-                    })
-                  }
-                >
-                  {episode.name}
-                </a>
-              </td>
-              <td>{formatDate(episode.date)}</td>
-              <td style={{ textAlign: "center" }}>
-                {convertMsIntoMinSec(episode.duration)}
-              </td>
-            </tr>
-          ))}
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {episodes &&
+            episodes.map((episode) => (
+              <tr key={episode.episodeId}>
+                <td>
+                  <a
+                    href=""
+                    onClick={(e) =>
+                      handleClick(e, {
+                        podcastId: episode.podcastId,
+                        episodeId: episode.episodeId,
+                      })
+                    }
+                  >
+                    {episode.name}
+                  </a>
+                </td>
+                <td>{formatDate(episode.date)}</td>
+                <td style={{ textAlign: "center" }}>
+                  {convertMsIntoMinSec(episode.duration)}
+                </td>
+              </tr>
+            ))}
+        </tbody>
       </table>
     </div>
   );

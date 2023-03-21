@@ -6,7 +6,7 @@ import useQueryData from "../common/hooks/UseQueryData";
 import configApi from "../common/config/configApi.json";
 import { StoreContext } from "../common/providers/StoreProvider";
 import { haveBeenExpired, getUrlNoCors } from "../common/utils/common";
-import { getDataFromPodcast, getEpisodes } from "../common/utils/podcasts";
+import { getEpisodes } from "../common/utils/podcasts";
 import HeaderPodcastDetails from "../components/home/podcastdetails/headerpodcastdetails/HeaderPodcastDetails";
 import DetailsCard from "../components/home/card/details/DetailsCard";
 
@@ -46,6 +46,7 @@ const PodcastDetails = ({ podcastId }) => {
     <div className="layout">
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />
       <br />
+
       <LayoutPodcastDetails>
         <div>
           <DetailsCard
@@ -55,20 +56,24 @@ const PodcastDetails = ({ podcastId }) => {
             description={cardData?.description}
           />
         </div>
-        <div>
-          <HeaderPodcastDetails
-            title={`Episodes: ${
-              store.podcastsDetails[podcastId]?.podcast?.length ?? "-"
-            }`}
-          />
-          <br />
-          <TableEpisodes
-            episodes={store.podcastsDetails[podcastId]?.podcast ?? []}
-            onClick={({ podcastId, episodeId }) =>
-              handleClickEpisode({ podcastId, episodeId })
-            }
-          />
-        </div>
+        {!!error ? (
+          <Error show={true} />
+        ) : (
+          <div>
+            <HeaderPodcastDetails
+              title={`Episodes: ${
+                store.podcastsDetails[podcastId]?.podcast?.length ?? "-"
+              }`}
+            />
+            <br />
+            <TableEpisodes
+              episodes={store.podcastsDetails[podcastId]?.podcast ?? []}
+              onClick={({ podcastId, episodeId }) =>
+                handleClickEpisode({ podcastId, episodeId })
+              }
+            />
+          </div>
+        )}
       </LayoutPodcastDetails>
     </div>
   );

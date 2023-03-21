@@ -27,6 +27,7 @@ const useQueryData = (url, enableQuery = true) => {
   };
 
   useEffect(() => {
+    console.log("*********enableQuery", enableQuery);
     if (!enableQuery) {
       setState(defaultState);
       return;
