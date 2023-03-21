@@ -24,6 +24,10 @@ const Home = () => {
   );
 
   useEffect(() => {
+    actionCreators.resetSelectedPodcast();
+  }, []);
+
+  useEffect(() => {
     if (!result) return;
     actionCreators.setPodcasts({
       podcasts: result.feed?.entry,
@@ -47,7 +51,24 @@ const Home = () => {
     if (filteredPodcasts) setPodcastsToDisplay(filteredPodcasts);
   }, [textToSearch]);
 
-  console.log(store.podcasts);
+  const handleClickSelectedPodcast = ({
+    title,
+    author,
+    imgSrc,
+    id,
+    description,
+  }) => {
+    actionCreators.setSelectedPodcast({
+      title,
+      author,
+      imgSrc,
+      id,
+      description,
+    });
+    navigate(`/podcast/${id}`);
+  };
+
+  console.log("store", store);
   return (
     <div className="home-main layout">
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />
@@ -61,10 +82,19 @@ const Home = () => {
       <CardsContainer show={!error} cards={podcastsToDisplay}>
         {podcastsToDisplay &&
           podcastsToDisplay.map((card) => {
-            let { title, author, imgSrc, id } = getDataFromPodcast(card);
+            let { title, author, imgSrc, id, description } =
+              getDataFromPodcast(card);
             return (
               <HomeCard
-                onClick={(e) => navigate(`/podcast/${id}`)}
+                onClick={(e) =>
+                  handleClickSelectedPodcast({
+                    title,
+                    author,
+                    imgSrc,
+                    id,
+                    description,
+                  })
+                }
                 title={title}
                 author={author}
                 imgSrc={imgSrc}

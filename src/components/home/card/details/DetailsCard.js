@@ -13,7 +13,7 @@ const DetailsCard = ({
       </div>
       <div className="detailscard-content">
         <div className="detailscard-title">{title}</div>
-        <div className="detailscard-subtitle">{subtitle}</div>
+        <div className="detailscard-subtitle">By {subtitle}</div>
         <div className="detailscard-description-title">Description:</div>
         <div className="detailscard-description">{description}</div>
       </div>

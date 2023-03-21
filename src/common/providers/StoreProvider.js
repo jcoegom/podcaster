@@ -4,9 +4,12 @@ export const StoreContext = createContext();
 
 const SET_PODCASTS = "setPodcasts";
 const SET_PODCAST_DETAILS = "setPodcastDetails";
+const SET_SELECTED_POSDCAST = "setSelectedPodcast";
+const RESET_SELECTED_PODCAST = "resetSelectedPodcast";
 
 const defaultStore = {
   podcasts: [],
+  selectedPodcast: null,
   podcastsValidTo: 0,
   podcastsDetails: {},
 };
@@ -27,6 +30,12 @@ const reducerStore = (state, { type = "", payload = "" }) => {
           [podcastId]: { podcast, podcastValidTo },
         },
       };
+
+    case SET_SELECTED_POSDCAST:
+      return { ...state, selectedPodcast: payload };
+
+    case RESET_SELECTED_PODCAST:
+      return { ...state, selectedPodcast: null };
 
     default:
       return state;
@@ -50,6 +59,19 @@ const StoreProvider = (props) => {
     });
   };
 
+  const setSelectedPodcast = (podcast) => {
+    dispatchStore({
+      type: SET_SELECTED_POSDCAST,
+      payload: podcast,
+    });
+  };
+
+  const resetSelectedPodcast = () => {
+    dispatchStore({
+      type: RESET_SELECTED_PODCAST,
+    });
+  };
+
   return (
     <StoreContext.Provider
       value={[
@@ -57,6 +79,8 @@ const StoreProvider = (props) => {
         {
           setPodcasts,
           setPodcastDetails,
+          setSelectedPodcast,
+          resetSelectedPodcast,
         },
       ]}
     >

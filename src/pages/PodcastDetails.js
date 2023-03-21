@@ -14,9 +14,11 @@ import "../App.css";
 import LayoutPodcastDetails from "../components/home/podcastdetails/layoutpodcastdetails/LayoutPodcastDetails";
 import TableEpisodes from "../components/home/podcastdetails/tableepisodes/TableEpisodes";
 import { navigate } from "@reach/router";
+import useDetailsCardData from "../components/home/hooks/UseDetailsCardData";
 
 const PodcastDetails = ({ podcastId }) => {
   const [store, actionCreators] = useContext(StoreContext);
+  const [cardData] = useDetailsCardData(store);
   const [loading, error, result] = useQueryData(
     getUrlNoCors(
       `${configApi.urlPodcastDetails}?id=${podcastId}&entity=podcastEpisode`
@@ -48,9 +50,10 @@ const PodcastDetails = ({ podcastId }) => {
       <br />
       <LayoutPodcastDetails>
         <DetailsCard
-          title={"title"}
-          subtitle={"subtitle"}
-          description={"description"}
+          imgSrc={cardData?.imgSrc}
+          title={cardData?.title}
+          subtitle={cardData?.subtitle}
+          description={cardData?.description}
         />
         <div>
           <HeaderPodcastDetails

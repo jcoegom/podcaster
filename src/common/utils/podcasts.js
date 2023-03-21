@@ -3,7 +3,8 @@ export const getDataFromPodcast = (podcast) => {
   let author = podcast["im:artist"]?.label;
   let imgSrc = podcast["im:image"]?.[0]?.label;
   let id = podcast.id?.attributes?.["im:id"];
-  return { title, author, imgSrc, id };
+  let description = podcast.summary?.label;
+  return { title, author, imgSrc, id, description };
 };
 
 export const getEpisodes = (podcastDetails) => {
