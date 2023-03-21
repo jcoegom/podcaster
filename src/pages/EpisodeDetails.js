@@ -44,11 +44,13 @@ const EpisodeDetails = ({ podcastId, episodeId }) => {
           subtitle={cardData?.subtitle}
           description={cardData?.description}
         />
-        <CardEpisode
-          title={episode.name}
-          description={episode.description}
-          url={episode.url}
-        />
+        <div>
+          <CardEpisode
+            title={episode.name}
+            description={episode.description}
+            url={episode.url}
+          />
+        </div>
       </LayoutPodcastDetails>
     </div>
   );

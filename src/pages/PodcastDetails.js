@@ -49,12 +49,14 @@ const PodcastDetails = ({ podcastId }) => {
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />
       <br />
       <LayoutPodcastDetails>
-        <DetailsCard
-          imgSrc={cardData?.imgSrc}
-          title={cardData?.title}
-          subtitle={cardData?.subtitle}
-          description={cardData?.description}
-        />
+        <div>
+          <DetailsCard
+            imgSrc={cardData?.imgSrc}
+            title={cardData?.title}
+            subtitle={cardData?.subtitle}
+            description={cardData?.description}
+          />
+        </div>
         <div>
           <HeaderPodcastDetails
             title={`Episodes: ${
