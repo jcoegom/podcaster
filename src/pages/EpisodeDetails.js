@@ -31,8 +31,6 @@ const EpisodeDetails = ({ podcastId, episodeId }) => {
     setLoading(false);
   }, []);
 
-  console.log("StoreDestailsEpisode//episode", store);
-  console.log("episode(episodeDetails)", episode);
   return (
     <div className="layout">
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />

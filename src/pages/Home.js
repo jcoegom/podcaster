@@ -68,7 +68,6 @@ const Home = () => {
     navigate(`/podcast/${id}`);
   };
 
-  console.log("store", store);
   return (
     <div className="home-main layout">
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />
@@ -86,6 +85,7 @@ const Home = () => {
               getDataFromPodcast(card);
             return (
               <HomeCard
+                key={id}
                 onClick={(e) =>
                   handleClickSelectedPodcast({
                     title,

@@ -42,8 +42,6 @@ const PodcastDetails = ({ podcastId }) => {
     navigate(`/podcast/${podcastId}/episode/${episodeId}`);
   };
 
-  console.log("result", JSON.parse(result?.contents ?? "{}"));
-
   return (
     <div className="layout">
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />
