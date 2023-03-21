@@ -1,5 +1,5 @@
 import React from "react";
-import HomeCard from "../card/HomeCard";
+import HomeCard from "../card/home/HomeCard";
 import { getDataFromPodcast } from "../../../common/utils/podcasts";
 
 import "./CardsContainer.css";

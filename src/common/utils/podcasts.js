@@ -9,6 +9,7 @@ export const getDataFromPodcast = (podcast) => {
 export const getEpisodes = (podcastDetails) => {
   if (!podcastDetails || !podcastDetails.contents?.results) return;
   let [medataItem, ...podcastDetailsFiltered] = podcastDetails.contents.results;
+  console.log("metadataItem", medataItem);
   let result = podcastDetailsFiltered.map((detail) => {
     return {
       name: detail.trackName,

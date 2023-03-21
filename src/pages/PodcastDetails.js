@@ -8,6 +8,7 @@ import { StoreContext } from "../common/providers/StoreProvider";
 import { haveBeenExpired, getUrlNoCors } from "../common/utils/common";
 import { getDataFromPodcast, getEpisodes } from "../common/utils/podcasts";
 import HeaderPodcastDetails from "../components/home/podcastdetails/headerpodcastdetails/HeaderPodcastDetails";
+import DetailsCard from "../components/home/card/details/DetailsCard";
 
 import "../App.css";
 import LayoutPodcastDetails from "../components/home/podcastdetails/layoutpodcastdetails/LayoutPodcastDetails";
@@ -46,7 +47,11 @@ const PodcastDetails = ({ podcastId }) => {
       <MainBar title={"Podcaster"} actions={<Spinner show={loading} />} />
       <br />
       <LayoutPodcastDetails>
-        <div />
+        <DetailsCard
+          title={"title"}
+          subtitle={"subtitle"}
+          description={"description"}
+        />
         <div>
           <HeaderPodcastDetails
             title={`Episodes: ${

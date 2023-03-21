@@ -1,0 +1,46 @@
+.detailscard {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 250px;
+  min-height: 200px;
+}
+
+.detailscardimg {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.detailscard img {
+  border-radius: 5px 0 0 5px;
+  width: 175px;
+}
+
+.detailscard .detailscard-content {
+  padding: 20px;
+}
+
+.detailscard .detailscard-title {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.detailscard .detailscard-subtitle {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-bottom: 35px;
+}
+
+.detailscard .detailscard-description-title {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.detailscard .detailscard-description {
+  font-size: 1em;
+  font-style: italic;
+}

@@ -7,7 +7,7 @@ import CardsContainer from "../components/home/cardsContainer/CardsContainer";
 import Error from "../components/error/Error";
 import useQueryData from "../common/hooks/UseQueryData";
 import configApi from "../common/config/configApi.json";
-import HomeCard from "../components/home/card/HomeCard";
+import HomeCard from "../components/home/card/home/HomeCard";
 import { StoreContext } from "../common/providers/StoreProvider";
 import { haveBeenExpired } from "../common/utils/common";
 import { getDataFromPodcast } from "../common/utils/podcasts";
