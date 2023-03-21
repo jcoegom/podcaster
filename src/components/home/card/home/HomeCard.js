@@ -9,7 +9,7 @@ const HomeCard = ({
   return (
     <div onClick={(e) => onClick()} className="card">
       <div className="homecard-img">
-        <img src={imgSrc} alt="Card Image" />
+        <img className="" src={imgSrc} alt="Card Image" />
       </div>
       <div className="card-content">
         <h2 className="card-title">{title}</h2>

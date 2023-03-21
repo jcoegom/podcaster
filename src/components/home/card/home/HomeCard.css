@@ -1,36 +1,26 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  width: 250px;
-  height: 350px;
-  position: relative;
+  height: auto;
+  margin: 5px;
 }
 .card:hover {
   cursor: pointer;
 }
 .homecard-img {
-  position: absolute;
-  transform: translateY(0%);
   z-index: 1000;
 }
 
 .card img {
+  position: relative;
+  top: 55px;
   width: 150px;
-  height: auto;
   border-radius: 50%;
+  border: 1px solid grey;
 }
 
 .card-content {
-  padding: 20px;
   text-align: center;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  position: absolute;
-  transform: translateY(50%);
+  border: 1px solid blue;
   z-index: 500;
-  width: 200px;
-  min-height: 120px;
 }
 
 .card-title {
