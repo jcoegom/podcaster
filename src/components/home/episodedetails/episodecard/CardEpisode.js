@@ -4,7 +4,10 @@ const CardEpisode = ({ title = "", description = "", url = "" }) => {
   return (
     <div className="cardepisode-main">
       <div className="cardepisode-title">{title}</div>
-      <div className="cardepisode-description">{description}</div>
+      <div
+        className="cardepisode-description"
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
       <div>
         <audio style={{ width: "100%" }} controls>
           <source src={url} type="audio/mpeg" />
