@@ -2,7 +2,7 @@
 
 En el directorio del proyecto ejecutar:
 
-### `npm start`
+### `npm install`
 
 y luego tenemos varias opciones:
 
