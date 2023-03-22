@@ -1,6 +1,10 @@
 ## Scripts Disponibles
 
-En el directorio del proyecto se puede ejecutar:
+En el directorio del proyecto ejecutar:
+
+### `npm start`
+
+y luego tenemos varias opciones:
 
 ### `npm start`
 
