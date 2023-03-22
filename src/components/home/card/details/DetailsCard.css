@@ -8,6 +8,9 @@
   width: 250px;
   min-height: 100px;
 }
+.detailscard-mouse:hover {
+  cursor: pointer;
+}
 
 .detailscardimg {
   text-align: center;

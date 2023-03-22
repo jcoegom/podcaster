@@ -8,6 +8,7 @@ import { StoreContext } from "../common/providers/StoreProvider";
 import useDetailsCardData from "../components/home/hooks/UseDetailsCardData";
 import { handleErrors } from "../common/utils/errors";
 import CardEpisode from "../components/home/episodedetails/episodecard/CardEpisode";
+import { navigate } from "@reach/router";
 
 const EpisodeDetails = ({ podcastId, episodeId }) => {
   const [store, actionCreators] = useContext(StoreContext);
@@ -41,6 +42,7 @@ const EpisodeDetails = ({ podcastId, episodeId }) => {
           title={cardData?.title}
           subtitle={cardData?.subtitle}
           description={cardData?.description}
+          onClick={(e) => navigate(`/podcast/${podcastId}`)}
         />
         <div>
           <CardEpisode
